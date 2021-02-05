@@ -1257,10 +1257,13 @@ describe('Client', function() {
         describe('should work', function() {
             it('gets cache metadata', function (done) {
                 var key = getKey();
-
                 // guarantee that we will at least have one result
                 cache.set(key, 'test').then(function() {
                     return cache.items();
+                }).then(function(items) {
+                  return new Promise(function(res) {
+                    setTimeout(function() { res(items); }, 1000);
+                  });
                 }).then(function (items) {
                     return cache.cachedump(items[0].slab_id);
                 }).then(function (data) {
