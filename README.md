@@ -1,14 +1,6 @@
-# Memcache Plus
+# Memcache ++
 
-Memcache Plus - Better memcache for node
-
-Full Documentation at: [http://memcache-plus.com](http://memcache-plus.com)
-
-[![Build Status](https://travis-ci.org/socialradar/memcache-plus.svg?branch=master)](https://travis-ci.org/socialradar/memcache-plus)
-
-[![NPM](https://nodei.co/npm/memcache-plus.png)](https://nodei.co/npm/memcache-plus?downloads=true)
-
-<iframe src="https://ghbtns.com/github-btn.html?user=socialradar&repo=memcache-plus&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+Memcache ++ Memcache module for Node js. Formerly forked from memcache-plus.
 
 ## What makes it "Plus"?
 
@@ -22,6 +14,4 @@ Full Documentation at: [http://memcache-plus.com](http://memcache-plus.com)
 * Cached retrieve (*coming soon!*) - simply pass a function for retrieving a value and a key and memcache-plus will do the whole "check key, if it exists return it, if not run the function to retrieve it, set the value, and return it" for you
 * Support for binaries (*coming soon!*) which the other memcache libraries for Node don't support
 
-Proudly developed in Washington, D.C. by:
-
-[![SocialRadar](https://raw.github.com/socialradar/batch-request/master/social-radar-black-orange.png)](http://socialradar.com)
+Memcache-plus proudly developed in Washington, D.C. by SocialRadar.
