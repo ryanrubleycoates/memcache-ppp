@@ -20,6 +20,10 @@ firewall rule blocking port 11211 on your Memcache server.
 If you do not specify a host, Memcache Plus will default to connecting to
 `localhost:11211`.
 
+If you specify `0` for port, Memcache++ will try to connect to the memcached
+server via unix socket and will use host value as a path to the socket file e.g.
+`/tmp/memcached.sock:0`.
+
 ## Specifying a Host
 
 #### As a string
