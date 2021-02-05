@@ -1,7 +1,7 @@
 {
-  "name": "memcache-plus",
-  "version": "0.2.22",
-  "description": "Better memcache for node",
+  "name": "memcache-pp",
+  "version": "0.3.0",
+  "description": "Memcache for node",
   "main": "index.js",
   "scripts": {
     "test": "grunt test",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/victorquinn/memcache-plus"
+    "url": "git://github.com/RomanBurunkov/memcache-pp"
   },
   "keywords": [
     "memcache",
@@ -19,19 +19,12 @@
     "elasticache",
     "cluster"
   ],
-  "author": "Victor Quinn <mail@victorquinn.com>",
+  "author": "Roman Burunkov <romon2002@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/victorquinn/memcache-plus/issues"
+    "url": "https://github.com/RomanBurunkov/memcache-pp/issues"
   },
-  "docpress": {
-    "github": "victorquinn/memcache-plus",
-    "googleAnalytics": {
-      "id": "UA-29142694-4",
-      "domain": "memcache-plus.com"
-    }
-  },
-  "homepage": "https://github.com/victorquinn/memcache-plus",
+  "homepage": "https://github.com/RomanBurunkov/memcache-pp",
   "devDependencies": {
     "chai": "^3.5.0",
     "chance": "^1.0.4",
