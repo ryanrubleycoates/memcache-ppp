@@ -1,6 +1,7 @@
 # Memcache ++
 
-Memcache ++ Memcache module for Node js. Formerly forked from memcache-plus.
+Memcache ++ Memcache module for Node js. Formerly forked from the memcache-plus
+So you can find many refs to the memcache-plus in the docs or code itself.
 
 ## What makes it "Plus"?
 
