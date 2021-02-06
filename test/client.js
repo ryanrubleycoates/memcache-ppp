@@ -12,12 +12,7 @@ describe('Client', function() {
     // We want a method for generating keys which will store them so we can
     // do cleanup later and not litter memcache with a bunch of garbage data
     var getKey = function(opts) {
-        var key;
-        if (opts) {
-            key = chance.word(opts);
-        } else {
-            key = chance.guid();
-        }
+        var key = opts ? chance.word(opts) : chance.guid();
         keys.push(key);
         return key;
     };
@@ -46,11 +41,10 @@ describe('Client', function() {
             cache.disconnect.should.be.a('function');
             _.sample(cache.connections).client.on('connect', function() {
                 cache.disconnect()
-                     .then(function() {
-                         cache.connections.should.be.an('object');
-                         _.keys(cache.connections).should.have.length(0);
-                     })
-                     .then(done);
+                    .then(function() {
+                        cache.connections.should.be.an('object');
+                        Object.keys(cache.connections).should.have.length(0);
+                    }).then(done);
             });
         });
 
@@ -59,14 +53,14 @@ describe('Client', function() {
             cache.should.have.property('disconnect');
             cache.disconnect.should.be.a('function');
             cache.disconnect('127.0.0.1:11211')
-                 .then(function() {
-                     cache.connections.should.be.an('object');
-                     _.keys(cache.connections).should.have.length(1);
-                     cache.hosts.should.have.length(1);
-                     _.keys(cache.connections)[0].should.equal('localhost:11211');
-                     cache.hosts[0].should.equal('localhost:11211');
-                 })
-                 .then(done);
+                .then(function() {
+                    cache.connections.should.be.an('object');
+                    Object.keys(cache.connections).should.have.length(1);
+                    cache.hosts.should.have.length(1);
+                    Object.keys(cache.connections)[0].should.equal('localhost:11211');
+                    cache.hosts[0].should.equal('localhost:11211');
+                })
+                .then(done);
         });
 
         it('can disconnect from a specific client with array', function(done) {
@@ -76,8 +70,8 @@ describe('Client', function() {
             cache.disconnect(['127.0.0.1:11211'])
                  .then(function() {
                      cache.connections.should.be.an('object');
-                     _.keys(cache.connections).should.have.length(1);
-                     _.keys(cache.connections)[0].should.equal('localhost:11211');
+                     Object.keys(cache.connections).should.have.length(1);
+                     Object.keys(cache.connections)[0].should.equal('localhost:11211');
                  })
                  .then(done);
         });
