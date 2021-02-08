@@ -59,8 +59,7 @@ describe('Client', function() {
                     cache.hosts.should.have.length(1);
                     Object.keys(cache.connections)[0].should.equal('localhost:11211');
                     cache.hosts[0].should.equal('localhost:11211');
-                })
-                .then(done);
+                }).then(done);
         });
 
         it('can disconnect from a specific client with array', function(done) {
@@ -68,12 +67,11 @@ describe('Client', function() {
             cache.should.have.property('disconnect');
             cache.disconnect.should.be.a('function');
             cache.disconnect(['127.0.0.1:11211'])
-                 .then(function() {
-                     cache.connections.should.be.an('object');
-                     Object.keys(cache.connections).should.have.length(1);
-                     Object.keys(cache.connections)[0].should.equal('localhost:11211');
-                 })
-                 .then(done);
+                .then(function() {
+                    cache.connections.should.be.an('object');
+                    Object.keys(cache.connections).should.have.length(1);
+                    Object.keys(cache.connections)[0].should.equal('localhost:11211');
+                }).then(done);
         });
 
         it('throws an error if attempting to disconnect from a bogus host', function() {
@@ -185,36 +183,24 @@ describe('Client', function() {
             var key = getKey(), val = chance.word();
 
             return cache.set(key, val)
-                        .then(function() {
-                            return cache.get(key);
-                        })
-                        .then(function(v) {
-                            val.should.equal(v);
-                        });
+              .then(function() { return cache.get(key); })
+              .then(function(v) { val.should.equal(v); });
         });
 
         it.skip('works with values with newlines', function() {
             var key = getKey(), val = 'value\nwith newline';
 
             return cache.set(key, val)
-                .then(function() {
-                    return cache.get(key);
-                })
-                .then(function(v) {
-                    val.should.equal(v);
-                });
+                .then(function() { return cache.get(key); })
+                .then(function(v) { val.should.equal(v); });
         });
     
         it('works with very large values', function() {
             var key = getKey(), val = chance.word({ length: 1000000 });
 
             return cache.set(key, val)
-                .then(function() {
-                    return cache.get(key);
-                })
-                .then(function(v) {
-                    val.should.equal(v);
-                });
+                .then(function() { return cache.get(key); })
+                .then(function(v) { val.should.equal(v); });
         });
 
         describe('compression', function() {
@@ -227,36 +213,24 @@ describe('Client', function() {
                 var val = chance.word({ length: 1000 });
 
                 return misc.compress(Buffer.from(val))
-                    .then(function(v) {
-                        return misc.decompress(v);
-                    })
-                    .then(function(d) {
-                        d.toString().should.equal(val);
-                    });
+                    .then(function(v) { return misc.decompress(v); })
+                    .then(function(d) { d.toString().should.equal(val); });
             });
 
             it('get works with compression', function() {
                 var key = getKey(), val = chance.word({ length: 1000 });
 
                 return cache.set(key, val, { compressed: true })
-                            .then(function() {
-                                return cache.get(key, { compressed: true });
-                            })
-                            .then(function(v) {
-                                val.should.equal(v);
-                            });
+                    .then(function() { return cache.get(key, { compressed: true }); })
+                    .then(function(v) { val.should.equal(v); });
             });
 
             it('get works with compression without explicit get compressed flag', function() {
                 var key = getKey(), val = chance.word({ length: 1000 });
 
                 return cache.set(key, val, { compressed: true })
-                            .then(function() {
-                                return cache.get(key);
-                            })
-                            .then(function(v) {
-                                val.should.equal(v);
-                            });
+                    .then(function() { return cache.get(key); })
+                    .then(function(v) { val.should.equal(v); });
             });
 
             it('getMulti works with compression', function() {
@@ -290,12 +264,8 @@ describe('Client', function() {
                 var key = getKey(), val = chance.word({ length: 1000 });
 
                 return cache.set(key, val)
-                            .then(function() {
-                                return cache.get(key, { compressed: true });
-                            })
-                            .then(function(v) {
-                                expect(v).to.be.null;
-                            });
+                    .then(function() { return cache.get(key, { compressed: true }); })
+                    .then(function(v) { expect(v).to.be.null; });
             });
         });
 
@@ -309,77 +279,65 @@ describe('Client', function() {
             var key = getKey(), val = chance.integer();
 
             return cache.set(key, val)
-                        .then(function() {
-                            return cache.get(key);
-                        })
-                        .then(function(v) {
-                            expect(v).to.be.a('number');
-                            v.should.equal(val);
-                        });
+                .then(function() { return cache.get(key); })
+                .then(function(v) {
+                    expect(v).to.be.a('number');
+                    v.should.equal(val);
+                });
         });
 
         it('get for val set as floating number returns number', function() {
             var key = getKey(), val = chance.floating();
 
             return cache.set(key, val)
-                        .then(function() {
-                            return cache.get(key);
-                        })
-                        .then(function(v) {
-                            expect(v).to.be.a.number;
-                            v.should.equal(val);
-                        });
+                .then(function() { return cache.get(key); })
+                .then(function(v) {
+                    expect(v).to.be.a.number;
+                    v.should.equal(val);
+                });
         });
 
         it('get for val set as object returns object', function() {
             var key = getKey(), val = { num: chance.integer() };
 
             return cache.set(key, val)
-                        .then(function() {
-                            return cache.get(key);
-                        })
-                        .then(function(v) {
-                            expect(v).to.be.an.object;
-                            (v.num).should.equal(val.num);
-                        });
+                .then(function() { return cache.get(key); })
+                .then(function(v) {
+                    expect(v).to.be.an.object;
+                    (v.num).should.equal(val.num);
+                });
         });
 
         it('get for val set as Buffer returns Buffer', function() {
             var key = getKey(), val = Buffer.from('blah blah test');
 
             return cache.set(key, val)
-                        .then(function() {
-                            return cache.get(key);
-                        })
-                        .then(function(v) {
-                            expect(v).to.be.an.instanceof(Buffer);
-                            (v.toString()).should.equal(val.toString());
-                        });
+                .then(function() { return cache.get(key); })
+                .then(function(v) {
+                    expect(v).to.be.an.instanceof(Buffer);
+                    (v.toString()).should.equal(val.toString());
+                });
         });
 
         it('get for val set as null returns null', function() {
             var key = getKey(), val = null;
 
             return cache.set(key, val)
-                        .then(function() {
-                            return cache.get(key);
-                        })
-                        .then(function(v) {
-                            expect(v).to.be.null;
-                        });
+                .then(function() { return cache.get(key); })
+                .then(function(v) {
+                    expect(v).to.be.null;
+                });
         });
 
         it('get for val set as array returns array', function() {
             var key = getKey(), val = [ chance.integer(), chance.integer() ];
 
             return cache.set(key, val)
-                        .then(function() {
-                            return cache.get(key);
-                        })
-                        .then(function(v) {
-                            expect(v).to.be.an.array;
-                            expect(v).to.deep.equal(val);
-                        });
+                .then(function() { return cache.get(key); })
+                .then(function(v) {
+                    expect(v).to.be.an.array;
+                    expect(v).to.deep.equal(val);
+                });
         });
 
         it('throws error with enormous values (over memcache limit)', function() {
@@ -401,12 +359,8 @@ describe('Client', function() {
                 val = chance.string({ pool: 'ÀÈÌÒÙàèìòÁÉÍÓÚáéíóúÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜŸäëïöüÿæ☃', length: 1000 });
 
             return cache.set(key, val)
-                .then(function() {
-                    return cache.get(key);
-                })
-                .then(function(v) {
-                    val.should.equal(v);
-                });
+                .then(function() { return cache.get(key); })
+                .then(function(v) { val.should.equal(v); });
         });
 
         it('works with callbacks as well', function(done) {
@@ -431,28 +385,16 @@ describe('Client', function() {
                 val1 = chance.word(), val2 = chance.word(), val3 = chance.word();
 
             var item1 = cache.set(key1, val1)
-                    .then(function() {
-                        return cache.get(key1);
-                    })
-                    .then(function(v) {
-                        val1.should.equal(v);
-                    });
+                .then(function() { return cache.get(key1); })
+                .then(function(v) { val1.should.equal(v); });
 
             var item2 = cache.set(key2, val2)
-                    .then(function() {
-                        return cache.get(key2);
-                    })
-                    .then(function(v) {
-                        val2.should.equal(v);
-                    });
+                .then(function() { return cache.get(key2); })
+                .then(function(v) { val2.should.equal(v); });
 
             var item3 = cache.set(key3, val3)
-                    .then(function() {
-                        return cache.get(key3);
-                    })
-                    .then(function(v) {
-                        val3.should.equal(v);
-                    });
+                .then(function() { return cache.get(key3); })
+                .then(function(v) { val3.should.equal(v); });
 
             return Promise.all([item1, item2, item3]);
         });
@@ -492,9 +434,7 @@ describe('Client', function() {
         describe('get to key that does not exist returns null', function() {
             it('with Promise', function() {
                 return cache.get(chance.guid())
-                    .then(function(v) {
-                        expect(v).to.be.null;
-                    });
+                    .then(function(v) { expect(v).to.be.null; });
             });
 
             it('with Callback', function(done) {
