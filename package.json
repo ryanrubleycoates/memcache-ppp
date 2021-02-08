@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "grunt test",
-    "build": "docpress build"
+    "build": "docpress build",
+    "coverage": "jshint && nyc --reporter=lcov mocha test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "jshint-stylish": "^2.2.0",
     "json-stringify-safe": "^5.0.0",
     "mocha": "^3.4.2",
+    "nyc": "^15.1.0",
     "sinon": "^1.10.3"
   },
   "dependencies": {
