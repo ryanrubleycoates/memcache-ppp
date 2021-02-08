@@ -28,7 +28,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install memcached
-        run: apt install memcached
+        run: sudo apt install memcached
       
       - name: Install modules
         run: npm install --save-dev
