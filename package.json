@@ -1,6 +1,6 @@
 {
-  "name": "memcache-pp",
-  "version": "0.3.3",
+  "name": "memcache-ppp",
+  "version": "0.4.0",
   "description": "Memcache for node",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/RomanBurunkov/memcache-pp"
+    "url": "git://github.com/ryanrubleycoates/memcache-ppp"
   },
   "keywords": [
     "memcache",
@@ -20,12 +20,12 @@
     "elasticache",
     "cluster"
   ],
-  "author": "Roman Burunkov <romon2002@gmail.com>",
+  "author": "Ryan Rubley <ryan.rubley@coatesgroup.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RomanBurunkov/memcache-pp/issues"
+    "url": "https://github.com/ryanrubleycoates/memcache-ppp/issues"
   },
-  "homepage": "https://github.com/RomanBurunkov/memcache-pp",
+  "homepage": "https://github.com/ryanrubleycoates/memcache-ppp",
   "devDependencies": {
     "chai": "^3.5.0",
     "chance": "^1.0.4",
