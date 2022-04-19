@@ -1,3 +1,7 @@
+# 0.4.1 (2022-04-19) (memcache-ppp)
+
+  * Fix reading values for multibyte characters
+
 # 0.4.0 (2022-04-19) (memcache-ppp)
 
   * Forked from memcache-pp 0.3.3
