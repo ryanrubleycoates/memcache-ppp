@@ -6,6 +6,7 @@ so you can find many refs to the memcache-plus in the docs or code itself.
 
 ## What's new in "Plus Plus Plus" over "Plus Plus" and the original "Plus"?
 
+* Removed hashring and replaced it with a simple cycle through each host
 * Fixed uncaught exception errors when retrieving certain data values
 * Support multiline/empty string/values where the data is a keyword (such as END) properly
 * Added missing touch/gat/gats commands
@@ -46,6 +47,12 @@ memcache.touch(key, ttl);
 memcache.gat(key, ttl, opts);
 memcache.gats(key, ttl, opts);
 ```
+
+## Why remove hashring?
+
+* Many people use only a single server on localhost, or a unix socket, making it pointless anyway
+* It is CPU intensive to calculate a MD5 hash of every key for every operation
+* Hashring's internal cache grows up to several GB of RAM in less than a day
 
 ## What makes it "Plus"?
 

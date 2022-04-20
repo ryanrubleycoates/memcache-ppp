@@ -1,3 +1,7 @@
+# 0.5.0 (2022-04-20) (memcache-ppp)
+
+  * Removed hashring and replaced it with a simple cycle through each host
+
 # 0.4.1 (2022-04-19) (memcache-ppp)
 
   * Fix reading values for multibyte characters
