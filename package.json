@@ -1,6 +1,6 @@
 {
   "name": "memcache-ppp",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Memcache for node",
   "main": "index.js",
   "scripts": {
