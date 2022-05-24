@@ -1,3 +1,7 @@
+# 0.5.1 (2022-05-25) (memcache-ppp)
+
+  * Fixed bug in getMulti/gatMulti when none of the keys are returned
+
 # 0.5.0 (2022-04-20) (memcache-ppp)
 
   * Removed hashring and replaced it with a simple cycle through each host
