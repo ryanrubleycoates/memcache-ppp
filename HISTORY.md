@@ -1,3 +1,7 @@
+# 0.5.2 (2022-05-27) (memcache-ppp)
+
+  * Fixed bug with undefined values crashing Buffer.from() in formatValue()
+
 # 0.5.1 (2022-05-25) (memcache-ppp)
 
   * Fixed bug in getMulti/gatMulti when none of the keys are returned
